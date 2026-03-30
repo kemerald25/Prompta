@@ -33,7 +33,7 @@ export const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <div className="w-full max-w-6xl px-6 h-full flex flex-col justify-center items-center py-20 relative">
+    <div className="w-full max-w-6xl px-6 min-h-full flex flex-col justify-center items-center py-20 relative">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}

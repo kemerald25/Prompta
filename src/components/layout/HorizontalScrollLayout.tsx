@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 
 interface HorizontalScrollLayoutProps {
@@ -8,8 +8,7 @@ interface HorizontalScrollLayoutProps {
 }
 
 export const HorizontalScrollLayout = ({ children }: HorizontalScrollLayoutProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ container: containerRef });
+  const { scrollYProgress } = useScroll();
   
   // Smooth scroll progress
   const smoothProgress = useSpring(scrollYProgress, {
@@ -19,21 +18,18 @@ export const HorizontalScrollLayout = ({ children }: HorizontalScrollLayoutProps
   });
 
   return (
-    <main
-      ref={containerRef}
-      className="snap-container h-screen overflow-y-auto"
-    >
+    <main className="snap-container relative">
       <div className="fixed top-0 left-0 w-full h-1 z-[60] origin-left">
         <motion.div 
           style={{ scaleX: smoothProgress }}
-          className="h-full bg-accent-primary shadow-[0_0_10px_var(--accent-glow)] shadow-accent-primary"
+          className="h-full bg-accent-primary shadow-[0_0_10px_var(--accent-glow)] lg:shadow-accent-primary"
         />
       </div>
 
       {children.map((child, index) => (
         <section 
           key={index} 
-          className="snap-section w-full h-screen flex flex-col justify-center items-center overflow-hidden"
+          className="snap-section w-full flex flex-col justify-center items-center pointer-events-auto"
         >
           {child}
         </section>

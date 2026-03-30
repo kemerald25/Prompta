@@ -21,7 +21,7 @@ export const FinalCTA = () => {
     <div 
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="w-full h-full flex flex-col justify-center items-center py-20 relative overflow-hidden bg-black/20"
+      className="w-full min-h-full flex flex-col justify-center items-center py-20 px-6 relative bg-black/20 overflow-hidden lg:overflow-visible"
     >
       {/* Parallax Background Text */}
       <motion.div 

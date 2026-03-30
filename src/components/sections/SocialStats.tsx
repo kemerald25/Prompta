@@ -57,7 +57,7 @@ const StatItem = ({ value, suffix, label, index }: { value: number, suffix: stri
 
 export const SocialStats = () => {
   return (
-    <div className="w-full max-w-6xl px-6 h-full flex flex-col justify-center py-20">
+    <div className="w-full max-w-6xl px-6 min-h-full flex flex-col justify-center py-20 overflow-hidden relative">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-y-20 gap-x-0 relative">
         {stats.map((stat, index) => (
           <StatItem key={index} {...stat} index={index} />

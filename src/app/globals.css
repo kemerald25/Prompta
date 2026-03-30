@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-accent-primary: var(--accent-primary);
@@ -36,11 +36,18 @@
   --accent-glow: rgba(16, 185, 129, 0.3);
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
-  overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -64,22 +71,47 @@ body {
   .mask-radial {
     mask-image: radial-gradient(circle, black, transparent);
   }
+
+  .navbar-glass-mobile {
+    @media (max-width: 1023px) {
+      @apply bg-white/5 backdrop-blur-xl border-b border-white/10;
+    }
+  }
 }
 
 /* Scroll Snap Engine */
 .snap-container {
-  height: 100vh;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  width: 100%;
+  position: relative;
+}
+
+/* Enable snapping only on desktops at the root level */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .snap-container {
+    height: auto;
+  }
 }
 
 .snap-section {
-  height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  min-height: 100dvh;
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  .snap-section {
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+  }
 }
 
 /* Custom Scrollbar */

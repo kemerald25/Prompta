@@ -46,7 +46,7 @@ const features = [
 
 export const FeaturesSection = () => {
   return (
-    <div className="w-full max-w-6xl px-6 h-full flex flex-col justify-center items-center py-20">
+    <div className="w-full max-w-6xl px-6 min-h-full flex flex-col justify-center items-center py-20">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

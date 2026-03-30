@@ -39,7 +39,7 @@ export const ProductDemo = () => {
   };
 
   return (
-    <div className="w-full max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center h-full pt-20">
+    <div className="w-full max-w-5xl px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center min-h-full py-20">
       {/* Left: Input Console */}
       <motion.div 
         initial={{ opacity: 0, x: -50 }}
